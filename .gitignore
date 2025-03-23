@@ -35,3 +35,6 @@ outputs/
 # Virtual Environment
 venv/
 ENV/ 
+
+# Model files (too large for GitHub)
+model/*.pth 
