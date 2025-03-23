@@ -31,12 +31,7 @@ var/
 
 # Output files
 outputs/*
-!outputs/class_distribution.png
-!outputs/confusion_matrix.png
-!outputs/training_history.png
-!outputs/output_output_10_2_1.mp4
-!outputs/output_10_2_1.mp4
-!outputs/ut_interaction_model.pth
+!outputs/.gitkeep
 
 # Virtual Environment
 venv/
