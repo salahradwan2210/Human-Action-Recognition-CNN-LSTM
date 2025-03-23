@@ -15,14 +15,13 @@ This project implements a human action recognition system using a hybrid CNN-LST
 ```
 Human-Action-Recognition-CNN-LSTM/
 ├── notebooks/             # Jupyter notebooks
-├── output/                # Model outputs and visualizations (create these files)
+├── output/                # Model outputs and visualizations
 │   ├── training_history.png    # Training progress visualization
 │   ├── confusion_matrix.png    # Model performance analysis
 │   ├── class_distribution.png  # Dataset class distribution
-│   ├── ut_interaction_model.pth # Trained model weights
 │   └── processed_videos/       # Video outputs with predictions
 ├── model/                 # Model directory
-│   └── ut_interaction_model.pth # Pre-trained model for inference
+│   └── ut_interaction_model.pth # Pre-trained model for inference (not included in repo)
 ├── data/                  # Data directory
 │   ├── videos/           # Video files
 │   └── csv/              # CSV files
@@ -43,17 +42,35 @@ pip install -r requirements.txt
 ```
 
 3. Download required files:
-   - Model weights: Download `ut_interaction_model.pth` (274MB) from [Google Drive](https://drive.google.com/file/YOUR_FILE_ID)
+   - **Important**: The model file (274MB) is not included directly in this repository due to size constraints
+   - Download model weights: `ut_interaction_model.pth` from [Google Drive](https://drive.google.com/file/YOUR_FILE_ID)
+   - Create a `model` directory in the project root if it doesn't exist
    - Place the downloaded file in the `model` directory
 
-## Required Output Files
-
-The project requires several output files that will be generated during training and testing. These files should be placed in the `output` directory:
+## Using the Pre-trained Model
 
 ### Model Files
 - `ut_interaction_model.pth`: Trained model weights (274MB)
-  - Download from: [Google Drive](https://drive.google.com/file/YOUR_FILE_ID)
+  - Download from: [Google Drive Link](https://drive.google.com/file/YOUR_FILE_ID)
   - Place in: `model/ut_interaction_model.pth`
+  - **Note**: This file is not included in the GitHub repository due to size constraints
+
+### Loading the Model
+```python
+import torch
+from model import ActionRecognitionModel  # Your model class
+
+# Initialize model
+model = ActionRecognitionModel()
+
+# Load pre-trained weights
+model.load_state_dict(torch.load('model/ut_interaction_model.pth', map_location=torch.device('cpu')))
+model.eval()
+```
+
+## Output Directory Structure
+
+The `output` directory will contain files generated during training and testing:
 
 ### Visualization Files
 The following files will be automatically generated when running the model:
