@@ -14,12 +14,13 @@ This project implements a human action recognition system using a hybrid CNN-LST
 
 ```
 Human-Action-Recognition-CNN-LSTM/
-├── src/                    # Source code
 ├── notebooks/             # Jupyter notebooks
-├── outputs/               # Model outputs and visualizations
+├── output/                # Model outputs and visualizations (create these files)
 │   ├── training_history.png    # Training progress visualization
 │   ├── confusion_matrix.png    # Model performance analysis
-│   └── class_distribution.png  # Dataset class distribution
+│   ├── class_distribution.png  # Dataset class distribution
+│   ├── ut_interaction_model.pth # Trained model weights
+│   └── processed_videos/       # Video outputs with predictions
 ├── data/                  # Data directory
 │   ├── videos/           # Video files
 │   └── csv/              # CSV files
@@ -41,29 +42,46 @@ pip install -r requirements.txt
 
 3. Download required files:
    - Model weights: Download `ut_interaction_model.pth` (274MB) from [Google Drive](https://drive.google.com/file/YOUR_FILE_ID)
-   - Example videos:
-     - [output_10_2_1.mp4](https://drive.google.com/file/YOUR_FILE_ID2)
-     - [output_output_10_2_1.mp4](https://drive.google.com/file/YOUR_FILE_ID3)
-   - Place all downloaded files in the `outputs` directory
+   - Place the downloaded file in the `output` directory
+
+## Required Output Files
+
+The project requires several output files that will be generated during training and testing. These files should be placed in the `output` directory:
+
+### Model Files
+- `ut_interaction_model.pth`: Trained model weights (274MB)
+  - Download from: [Google Drive](https://drive.google.com/file/YOUR_FILE_ID)
+  - Place in: `output/ut_interaction_model.pth`
+
+### Visualization Files
+The following files will be automatically generated when running the model:
+- `training_history.png`: Shows training and validation accuracy/loss over epochs
+- `confusion_matrix.png`: Displays model's classification performance
+- `class_distribution.png`: Shows distribution of samples across classes
+
+### Video Outputs
+Processed videos with predictions will be saved as:
+- `output_video_name.mp4`: Original video with predictions overlaid
+- Format: MP4 with predictions, confidence scores, and action descriptions
 
 ## Model Performance
 
 ### Training History
-![Training History](outputs/training_history.png)
+![Training History](https://drive.google.com/uc?export=view&id=YOUR_FILE_ID1)
 The training history shows the model's learning progress over epochs, with both training and validation metrics. The final model achieved:
 - Training Accuracy: 84.56%
 - Validation Accuracy: 92.90%
 - Best Validation Accuracy: 93.23%
 
 ### Confusion Matrix
-![Confusion Matrix](outputs/confusion_matrix.png)
+![Confusion Matrix](https://drive.google.com/uc?export=view&id=YOUR_FILE_ID2)
 The confusion matrix shows the model's classification performance across all action classes. Notable results:
 - Perfect accuracy (100%) for HUGGING and POINTING actions
 - Strong performance (>90%) for PUSHING and HANDSHAKING
 - Good discrimination between similar actions
 
 ### Class Distribution
-![Class Distribution](outputs/class_distribution.png)
+![Class Distribution](https://drive.google.com/uc?export=view&id=YOUR_FILE_ID3)
 The class distribution plot shows the balance of samples across different action classes in both training and testing sets.
 
 ## Model Architecture
@@ -93,25 +111,12 @@ The model achieves significant accuracy in recognizing human actions:
     POINTING       1.00      1.00      1.00        49
 ```
 
-## Downloads
-
-### Model Weights
-The trained model weights (`ut_interaction_model.pth`, 274MB) are available for download:
-- [Download from Google Drive](https://drive.google.com/file/YOUR_FILE_ID)
-- Place the downloaded file in the `outputs` directory
-- File contains complete model state including:
-  - CNN layers weights
-  - GRU parameters
-  - Attention mechanism weights
-  - Classifier layers
-
-### Example Videos
+## Example Videos
 Example processed videos are available for download:
-- [output_10_2_1.mp4](https://drive.google.com/file/YOUR_FILE_ID2) - Original processed video
-- [output_output_10_2_1.mp4](https://drive.google.com/file/YOUR_FILE_ID3) - Secondary processing example
+- [Sample Video 1](https://drive.google.com/file/YOUR_FILE_ID4) - Original processed video
+- [Sample Video 2](https://drive.google.com/file/YOUR_FILE_ID5) - Secondary processing example
 
-Place downloaded videos in the `outputs` directory to test the model's predictions.
-
+Place downloaded videos in the `output` directory to test the model's predictions.
 
 ## License
 
