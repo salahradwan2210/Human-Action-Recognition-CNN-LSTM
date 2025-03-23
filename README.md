@@ -20,7 +20,6 @@ Human-Action-Recognition-CNN-LSTM/
 │   ├── training_history.png    # Training progress visualization
 │   ├── confusion_matrix.png    # Model performance analysis
 │   ├── class_distribution.png  # Dataset class distribution
-│   ├── ut_interaction_model.pth # Trained model weights
 │   └── output_videos/          # Processed video outputs
 ├── data/                  # Data directory
 │   ├── videos/           # Video files
@@ -40,6 +39,10 @@ cd Human-Action-Recognition-CNN-LSTM
 ```bash
 pip install -r requirements.txt
 ```
+
+3. Download pre-trained model:
+   - Download `ut_interaction_model.pth` (274MB) from [Google Drive](https://drive.google.com/file/YOUR_FILE_ID)
+   - Place the downloaded file in the `outputs` directory
 
 ## Model Performance
 
@@ -90,11 +93,14 @@ The model achieves significant accuracy in recognizing human actions:
 
 ## Model Weights
 
-The trained model weights are saved in `outputs/ut_interaction_model.pth` (274MB). This file contains the complete model state including:
-- CNN layers weights
-- GRU parameters
-- Attention mechanism weights
-- Classifier layers
+The trained model weights (`ut_interaction_model.pth`, 274MB) are available for download:
+- [Download from Google Drive](https://drive.google.com/file/YOUR_FILE_ID)
+- Place the downloaded file in the `outputs` directory
+- File contains complete model state including:
+  - CNN layers weights
+  - GRU parameters
+  - Attention mechanism weights
+  - Classifier layers
 
 ## Video Processing Examples
 
