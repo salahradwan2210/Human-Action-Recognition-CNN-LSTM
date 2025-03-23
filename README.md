@@ -19,8 +19,7 @@ Human-Action-Recognition-CNN-LSTM/
 ├── outputs/               # Model outputs and visualizations
 │   ├── training_history.png    # Training progress visualization
 │   ├── confusion_matrix.png    # Model performance analysis
-│   ├── class_distribution.png  # Dataset class distribution
-│   └── output_videos/          # Processed video outputs
+│   └── class_distribution.png  # Dataset class distribution
 ├── data/                  # Data directory
 │   ├── videos/           # Video files
 │   └── csv/              # CSV files
@@ -40,9 +39,12 @@ cd Human-Action-Recognition-CNN-LSTM
 pip install -r requirements.txt
 ```
 
-3. Download pre-trained model:
-   - Download `ut_interaction_model.pth` (274MB) from [Google Drive](https://drive.google.com/file/YOUR_FILE_ID)
-   - Place the downloaded file in the `outputs` directory
+3. Download required files:
+   - Model weights: Download `ut_interaction_model.pth` (274MB) from [Google Drive](https://drive.google.com/file/YOUR_FILE_ID)
+   - Example videos:
+     - [output_10_2_1.mp4](https://drive.google.com/file/YOUR_FILE_ID2)
+     - [output_output_10_2_1.mp4](https://drive.google.com/file/YOUR_FILE_ID3)
+   - Place all downloaded files in the `outputs` directory
 
 ## Model Performance
 
@@ -91,8 +93,9 @@ The model achieves significant accuracy in recognizing human actions:
     POINTING       1.00      1.00      1.00        49
 ```
 
-## Model Weights
+## Downloads
 
+### Model Weights
 The trained model weights (`ut_interaction_model.pth`, 274MB) are available for download:
 - [Download from Google Drive](https://drive.google.com/file/YOUR_FILE_ID)
 - Place the downloaded file in the `outputs` directory
@@ -102,17 +105,12 @@ The trained model weights (`ut_interaction_model.pth`, 274MB) are available for 
   - Attention mechanism weights
   - Classifier layers
 
-## Video Processing Examples
+### Example Videos
+Example processed videos are available for download:
+- [output_10_2_1.mp4](https://drive.google.com/file/YOUR_FILE_ID2) - Original processed video
+- [output_output_10_2_1.mp4](https://drive.google.com/file/YOUR_FILE_ID3) - Secondary processing example
 
-The model processes videos and generates output files with predictions overlaid:
-- Input videos are analyzed frame by frame
-- Real-time action recognition is performed
-- Confidence scores are displayed
-- Action descriptions are shown on the video
-
-Example outputs can be found in the `outputs` directory:
-- `output_10_2_1.mp4`: Original processed video
-- `output_output_10_2_1.mp4`: Secondary processing example
+Place downloaded videos in the `outputs` directory to test the model's predictions.
 
 ## License
 
