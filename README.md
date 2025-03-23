@@ -15,15 +15,14 @@ This project implements a human action recognition system using a hybrid CNN-LST
 ```
 Human-Action-Recognition-CNN-LSTM/
 ├── notebooks/             # Jupyter notebooks
-├── output/                # Model outputs and visualizations (create these files)
-│   ├── training_history.png    # Training progress visualization
-│   ├── confusion_matrix.png    # Model performance analysis
-│   ├── class_distribution.png  # Dataset class distribution
-│   ├── ut_interaction_model.pth # Trained model weights
-│   └── processed_videos/       # Video outputs with predictions
+├── output/                # Model outputs and visualizations
+│   ├── training_history.png     # Training progress visualization
+│   ├── confusion_matrix.png     # Model performance analysis
+│   ├── class_distribution.png   # Dataset class distribution
+│   └── processed_videos/        # Video outputs with predictions
 ├── data/                  # Data directory
-│   ├── videos/           # Video files
-│   └── csv/              # CSV files
+│   ├── videos/           # Input video files
+│   └── csv/              # CSV files with extracted features
 └── requirements.txt       # Project dependencies
 ```
 
@@ -40,18 +39,9 @@ cd Human-Action-Recognition-CNN-LSTM
 pip install -r requirements.txt
 ```
 
-3. Download required files:
-   - Model weights: Download `ut_interaction_model.pth` (274MB) from [Google Drive](https://drive.google.com/file/YOUR_FILE_ID)
-   - Place the downloaded file in the `output` directory
+## Output Directory Structure
 
-## Required Output Files
-
-The project requires several output files that will be generated during training and testing. These files should be placed in the `output` directory:
-
-### Model Files
-- `ut_interaction_model.pth`: Trained model weights (274MB)
-  - Download from: [Google Drive](https://drive.google.com/file/YOUR_FILE_ID)
-  - Place in: `output/ut_interaction_model.pth`
+The `output` directory will contain files generated during training and testing:
 
 ### Visualization Files
 The following files will be automatically generated when running the model:
@@ -59,29 +49,39 @@ The following files will be automatically generated when running the model:
 - `confusion_matrix.png`: Displays model's classification performance
 - `class_distribution.png`: Shows distribution of samples across classes
 
-### Video Outputs
-Processed videos with predictions will be saved as:
-- `output_video_name.mp4`: Original video with predictions overlaid
-- Format: MP4 with predictions, confidence scores, and action descriptions
+### Video Processing
+When you run the model on a video file:
+1. Place your input videos in the `data/videos` directory
+2. Run the model using the notebook
+3. Processed videos will be automatically saved in `output/processed_videos/`
+   - Each output video will include:
+     - Original video frames
+     - Real-time action predictions
+     - Confidence scores
+     - Action descriptions
+
+Example output filename format:
+- Input: `data/videos/input_video.mp4`
+- Output: `output/processed_videos/output_input_video.mp4`
 
 ## Model Performance
 
 ### Training History
-![Training History](https://drive.google.com/uc?export=view&id=YOUR_FILE_ID1)
+![Training History](output/training_history.png)
 The training history shows the model's learning progress over epochs, with both training and validation metrics. The final model achieved:
 - Training Accuracy: 84.56%
 - Validation Accuracy: 92.90%
 - Best Validation Accuracy: 93.23%
 
 ### Confusion Matrix
-![Confusion Matrix](https://drive.google.com/uc?export=view&id=YOUR_FILE_ID2)
+![Confusion Matrix](output/confusion_matrix.png)
 The confusion matrix shows the model's classification performance across all action classes. Notable results:
 - Perfect accuracy (100%) for HUGGING and POINTING actions
 - Strong performance (>90%) for PUSHING and HANDSHAKING
 - Good discrimination between similar actions
 
 ### Class Distribution
-![Class Distribution](https://drive.google.com/uc?export=view&id=YOUR_FILE_ID3)
+![Class Distribution](output/class_distribution.png)
 The class distribution plot shows the balance of samples across different action classes in both training and testing sets.
 
 ## Model Architecture
@@ -110,13 +110,6 @@ The model achieves significant accuracy in recognizing human actions:
  HANDSHAKING       0.98      0.91      0.94        55
     POINTING       1.00      1.00      1.00        49
 ```
-
-## Example Videos
-Example processed videos are available for download:
-- [Sample Video 1](https://drive.google.com/file/YOUR_FILE_ID4) - Original processed video
-- [Sample Video 2](https://drive.google.com/file/YOUR_FILE_ID5) - Secondary processing example
-
-Place downloaded videos in the `output` directory to test the model's predictions.
 
 ## License
 
