@@ -29,17 +29,14 @@ var/
 # VS Code
 .vscode/
 
-# Model files
-*.pth
-
 # Output files
-outputs/
-*.png
-*.jpg
-*.jpeg
-*.mp4
-*.avi
-*.mov
+outputs/*
+!outputs/class_distribution.png
+!outputs/confusion_matrix.png
+!outputs/training_history.png
+!outputs/output_output_10_2_1.mp4
+!outputs/output_10_2_1.mp4
+!outputs/ut_interaction_model.pth
 
 # Virtual Environment
 venv/
