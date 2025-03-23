@@ -112,6 +112,7 @@ Example processed videos are available for download:
 
 Place downloaded videos in the `outputs` directory to test the model's predictions.
 
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details. 
