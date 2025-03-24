@@ -10,6 +10,13 @@ This project implements a human action recognition system using a hybrid CNN-LST
 - Advanced feature extraction using optical flow
 - Visualization tools for model performance analysis
 
+## Dataset
+
+This project uses the UT-Interaction dataset, which contains videos of human interactions:
+- **Dataset Link**: [UT-Interaction Dataset on Kaggle](https://www.kaggle.com/datasets/duynm619/utinteraction)
+- Contains 6 classes of human interactions: HUGGING, KICKING, PUNCHING, PUSHING, HANDSHAKING, and POINTING
+- Standard benchmark for human action recognition algorithms
+
 ## Project Structure
 
 ```
@@ -42,31 +49,21 @@ pip install -r requirements.txt
 ```
 
 3. Download required files:
-   - **Important**: The model file (274MB) is not included directly in this repository due to size constraints
-   - Download model weights: `ut_interaction_model.pth` from [Google Drive](https://drive.google.com/file/YOUR_FILE_ID)
+   - **Model weights**: Download `ut_interaction_model.pth` (274MB) from the [UT-Interaction Dataset on Kaggle](https://www.kaggle.com/datasets/duynm619/utinteraction)
    - Create a `model` directory in the project root if it doesn't exist
    - Place the downloaded file in the `model` directory
+
+4. Download dataset (optional):
+   - Download the complete dataset from [Kaggle](https://www.kaggle.com/datasets/duynm619/utinteraction)
+   - Extract the dataset to the `data/videos` directory
 
 ## Using the Pre-trained Model
 
 ### Model Files
 - `ut_interaction_model.pth`: Trained model weights (274MB)
-  - Download from: [Google Drive Link](https://drive.google.com/file/YOUR_FILE_ID)
+  - Download from: [UT-Interaction Dataset on Kaggle](https://www.kaggle.com/datasets/duynm619/utinteraction)
   - Place in: `model/ut_interaction_model.pth`
   - **Note**: This file is not included in the GitHub repository due to size constraints
-
-### Loading the Model
-```python
-import torch
-from model import ActionRecognitionModel  # Your model class
-
-# Initialize model
-model = ActionRecognitionModel()
-
-# Load pre-trained weights
-model.load_state_dict(torch.load('model/ut_interaction_model.pth', map_location=torch.device('cpu')))
-model.eval()
-```
 
 ## Output Directory Structure
 
@@ -76,7 +73,7 @@ The `output` directory will contain files generated during training and testing:
 The following files will be automatically generated when running the model:
 - `training_history.png`: Shows training and validation accuracy/loss over epochs
 - `confusion_matrix.png`: Displays model's classification performance
-- `class_distribution.png`: Shows distribution of samples across classes
+
 
 ### Video Outputs
 Processed videos with predictions will be saved as:
@@ -86,22 +83,18 @@ Processed videos with predictions will be saved as:
 ## Model Performance
 
 ### Training History
-![Training History](https://drive.google.com/uc?export=view&id=YOUR_FILE_ID1)
+![Training History](output/training_history.png)
 The training history shows the model's learning progress over epochs, with both training and validation metrics. The final model achieved:
 - Training Accuracy: 84.56%
 - Validation Accuracy: 92.90%
 - Best Validation Accuracy: 93.23%
 
 ### Confusion Matrix
-![Confusion Matrix](https://drive.google.com/uc?export=view&id=YOUR_FILE_ID2)
+![Confusion Matrix](output/confusion_matrix.png)
 The confusion matrix shows the model's classification performance across all action classes. Notable results:
 - Perfect accuracy (100%) for HUGGING and POINTING actions
 - Strong performance (>90%) for PUSHING and HANDSHAKING
 - Good discrimination between similar actions
-
-### Class Distribution
-![Class Distribution](https://drive.google.com/uc?export=view&id=YOUR_FILE_ID3)
-The class distribution plot shows the balance of samples across different action classes in both training and testing sets.
 
 ## Model Architecture
 
@@ -131,11 +124,9 @@ The model achieves significant accuracy in recognizing human actions:
 ```
 
 ## Example Videos
-Example processed videos are available for download:
-- [Sample Video 1](https://drive.google.com/file/YOUR_FILE_ID4) - Original processed video
-- [Sample Video 2](https://drive.google.com/file/YOUR_FILE_ID5) - Secondary processing example
-
-Place downloaded videos in the `output` directory to test the model's predictions.
+Example processed videos are available in the dataset:
+- Download sample videos from the [UT-Interaction Dataset on Kaggle](https://www.kaggle.com/datasets/duynm619/utinteraction)
+- Place downloaded videos in the `data/videos` directory to test the model's predictions
 
 ## License
 
