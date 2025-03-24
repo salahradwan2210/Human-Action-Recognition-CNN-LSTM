@@ -65,6 +65,19 @@ pip install -r requirements.txt
   - Place in: `model/ut_interaction_model.pth`
   - **Note**: This file is not included in the GitHub repository due to size constraints
 
+### Loading the Model
+```python
+import torch
+from model import ActionRecognitionModel  # Your model class
+
+# Initialize model
+model = ActionRecognitionModel()
+
+# Load pre-trained weights
+model.load_state_dict(torch.load('model/ut_interaction_model.pth', map_location=torch.device('cpu')))
+model.eval()
+```
+
 ## Output Directory Structure
 
 The `output` directory will contain files generated during training and testing:
@@ -73,7 +86,7 @@ The `output` directory will contain files generated during training and testing:
 The following files will be automatically generated when running the model:
 - `training_history.png`: Shows training and validation accuracy/loss over epochs
 - `confusion_matrix.png`: Displays model's classification performance
-
+- `class_distribution.png`: Shows distribution of samples across classes
 
 ### Video Outputs
 Processed videos with predictions will be saved as:
@@ -95,6 +108,10 @@ The confusion matrix shows the model's classification performance across all act
 - Perfect accuracy (100%) for HUGGING and POINTING actions
 - Strong performance (>90%) for PUSHING and HANDSHAKING
 - Good discrimination between similar actions
+
+### Class Distribution
+![Class Distribution](output/class_distribution.png)
+The class distribution plot shows the balance of samples across different action classes in both training and testing sets.
 
 ## Model Architecture
 
