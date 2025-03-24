@@ -48,17 +48,6 @@ cd Human-Action-Recognition-CNN-LSTM
 pip install -r requirements.txt
 ```
 
-3. Download required files:
-   - **Model weights**: Download `ut_interaction_model.pth` (274MB) from the [UT-Interaction Dataset on Kaggle](https://www.kaggle.com/datasets/duynm619/utinteraction)
-   - Create a `model` directory in the project root if it doesn't exist
-   - Place the downloaded file in the `model` directory
-
-4. Download dataset (optional):
-   - Download the complete dataset from [Kaggle](https://www.kaggle.com/datasets/duynm619/utinteraction)
-   - Extract the dataset to the `data/videos` directory
-
-## Using the Pre-trained Model
-
 ### Model Files
 - `ut_interaction_model.pth`: Trained model weights (274MB)
   - Download from: [UT-Interaction Dataset on Kaggle](https://www.kaggle.com/datasets/duynm619/utinteraction)
