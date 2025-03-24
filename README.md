@@ -47,25 +47,6 @@ cd Human-Action-Recognition-CNN-LSTM
 pip install -r requirements.txt
 ```
 
-### Model Files
-- `ut_interaction_model.pth`: Trained model weights (274MB)
-  - Download from: [UT-Interaction Dataset on Kaggle](https://www.kaggle.com/datasets/duynm619/utinteraction)
-  - Place in: `model/ut_interaction_model.pth`
-  - **Note**: This file is not included in the GitHub repository due to size constraints
-
-### Loading the Model
-```python
-import torch
-from model import ActionRecognitionModel  # Your model class
-
-# Initialize model
-model = ActionRecognitionModel()
-
-# Load pre-trained weights
-model.load_state_dict(torch.load('model/ut_interaction_model.pth', map_location=torch.device('cpu')))
-model.eval()
-```
-
 ## Output Directory Structure
 
 The `output` directory will contain files generated during training and testing:
