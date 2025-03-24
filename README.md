@@ -26,7 +26,6 @@ Human-Action-Recognition-CNN-LSTM/
 │   ├── training_history.png    # Training progress visualization
 │   ├── confusion_matrix.png    # Model performance analysis
 │   ├── class_distribution.png  # Dataset class distribution
-│   └── processed_videos/       # Video outputs with predictions
 ├── model/                 # Model directory
 │   └── ut_interaction_model.pth # Pre-trained model for inference (not included in repo)
 ├── data/                  # Data directory
