@@ -78,10 +78,6 @@ The confusion matrix shows the model's classification performance across all act
 - Strong performance (>90%) for PUSHING and HANDSHAKING
 - Good discrimination between similar actions
 
-### Class Distribution
-![Class Distribution](output/class_distribution.png)
-The class distribution plot shows the balance of samples across different action classes in both training and testing sets.
-
 ## Model Architecture
 
 The model uses a hybrid architecture combining:
